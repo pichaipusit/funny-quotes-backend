@@ -13,7 +13,7 @@ import { UsersModule } from './users/users.module';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
-      synchronize: true, // ❗️Set to false in production
+      synchronize: false, // ❗️Set to false in production
     }),
     TypeOrmModule.forFeature([User, Quote]),
     AuthModule,
