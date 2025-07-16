@@ -10,10 +10,10 @@ import { UsersModule } from './users/users.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db.sqlite',
-      entities: [User, Quote],
-      synchronize: true,
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      autoLoadEntities: true,
+      synchronize: true, // ❗️Set to false in production
     }),
     TypeOrmModule.forFeature([User, Quote]),
     AuthModule,
