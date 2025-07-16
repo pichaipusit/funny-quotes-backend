@@ -24,6 +24,7 @@ export class AuthController {
       throw new InternalServerErrorException('Registration failed');
     }
   }
+
   @Post('login')
   async login(@Body() dto: { username: string; password: string }) {
     const user = await this.authService.validateUser(
